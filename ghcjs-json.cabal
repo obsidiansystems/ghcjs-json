@@ -16,8 +16,9 @@ extra-source-files:  ChangeLog.md
 cabal-version:       >=1.10
 
 library
-  ghc-options:     -O
+  ghc-options:     -O -Wall
   exposed-modules: JavaScript.JSON.Types.FromJSVal
+                   JavaScript.JSON.Types.ToJSVal
                    -- JavaScript.JSON
                    -- JavaScript.JSON.Types
                    -- JavaScript.JSON.Types.Class

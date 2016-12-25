@@ -1,25 +1,17 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-} -- The FromJSVal instance here is an orphan
 module JavaScript.JSON.Types.FromJSVal where
 
 import Control.Monad
 import Control.Monad.Trans.Maybe (MaybeT(..), runMaybeT)
 import qualified Data.Aeson as AE
 import qualified Data.HashMap.Strict as H
-import Data.Maybe
 import Data.Scientific (Scientific, scientific, fromFloatDigits)
-import qualified Data.Text as T
 import qualified Data.Text.Internal as T
 import qualified Data.Vector as V
 -- GHCJS
-import qualified Data.JSString.Text as JSS
-import GHCJS.Types
 import GHCJS.Foreign.Internal
 import GHCJS.Marshal.Internal
-import qualified JavaScript.Array as A
-import qualified JavaScript.Array.Internal  as AI
-import qualified JavaScript.Object as O
 import qualified JavaScript.Object.Internal as OI
---
-import System.IO.Unsafe
 
 instance FromJSVal AE.Value where
   fromJSVal r = case jsonTypeOf r of
